@@ -15,7 +15,8 @@ app.use(
   })
 );
 app.use(express.json());
-app.use("/public", express.static(__dirname + "/public"));
+app.use('/public', express.static(__dirname + '/public'));
+
 
 //로그인 후 세션 유지를 위한 코드
 app.use(
