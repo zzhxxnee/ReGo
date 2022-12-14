@@ -54,7 +54,6 @@ router.post("/", async (req, res, next) => {
           res.write('<script>window.location="/signup"</script>');
         }
       }
-
     }
     //db에 제대로 들어가면
   } else {
