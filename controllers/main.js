@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 
     //응원한 목표들 리스트
    let cheer_goal_list = await pool.query("SELECT g.goal_id, g.goal_content FROM user AS u LEFT OUTER JOIN cheer AS c ON u.id = c.cheer_user_id LEFT OUTER JOIN goal AS g ON c.cheer_goal_id = g.goal_id WHERE u.id = ?",[user_id]);
-   var arr = new Array();
+   let arr = new Array();
    for(let i=0; i<cheer_goal_list[0].length;i++){
       arr[i]=cheer_goal_list[0][i].goal_id;
    }
