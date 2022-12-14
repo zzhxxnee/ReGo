@@ -32,7 +32,11 @@ router.post("/write_goal", async (req, res, next) => {
       [nickname, goal_content]
     );
     console.log(data[0][0]);
-    res.render("main", {title: "main", nickname: nickname});
+    res.render("main", {
+      title: "main",
+      nickname: nickname,
+      goal_list: goal_list[0],
+    });
   } catch (err) {
     console.error(err);
   }
