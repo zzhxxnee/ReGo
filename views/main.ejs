@@ -12,6 +12,12 @@
     <p>
       <%= nickname %>
       <a href="/logout">로그아웃</a>
+      <% for (let i = 0; i < goal_list.length; i++) { %>
+        <div class="goal_list">
+          <b> <%= goal_list[i].goal_user %> : </b> <%= goal_list[i].goal_content %> <br />
+        </div>
+      <!-- &emsp;&emsp; -->
+      <% } %>
     </p>
   </body>
 </html>
