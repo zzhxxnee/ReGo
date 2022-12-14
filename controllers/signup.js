@@ -15,23 +15,22 @@ router.post("/", async (req, res, next) => {
   const password_check = post.password_check;
   const nickname = post.nickname;
   const name = post.name;
-  const email = post.email;
 
   if (password == password_check) {
     //pw와 pw확인이 동일한지 확인
     const encrypted_pw = bcrypt.hashSync(password, 10);
     try {
       const data = await pool.query(
-        `INSERT INTO user(id, name, nickname, password, email) VALUES (?, ?, ?, ?, ?)`,
-        [id, name, nickname, encrypted_pw, email]
+        `INSERT INTO user(id, name, nickname, password) VALUES (?, ?, ?, ?)`,
+        [id, name, nickname, encrypted_pw]
       );
       res.write(`<script>window.location="/login"</script>`);
       res.end();
     } catch (err) {
       console.error(err);
       res.write(
-        //db에 들어가는 과정에서 오류가 난다면 id가 이미 존재하는 것
-        `<script type="text/javascript">alert('This ID is already exist!')</script>`
+        //db에 들어가는 과정에서 오류
+        `<script type="text/javascript">alert('error!')</script>`
       );
       res.write('<script>window.location="/signup"</script>');
     }
