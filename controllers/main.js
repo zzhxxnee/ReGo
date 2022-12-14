@@ -21,7 +21,6 @@ router.get("/", async (req, res) => {
 
 router.post("/write_goal", async (req, res, next) => {
   const post = req.body;
-  console.log(post);
 
   const goal_content = req.body.goal_content;
   const nickname = req.session.user["nickname"];
@@ -31,7 +30,8 @@ router.post("/write_goal", async (req, res, next) => {
       `INSERT INTO goal(goal_user, goal_content) VALUES (?, ?)`,
       [nickname, goal_content]
     );
-    console.log(data[0][0]);
+    const goal_list = await pool.query(`SELECT * FROM goal`);
+
     res.render("main", {
       title: "main",
       nickname: nickname,
