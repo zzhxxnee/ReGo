@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title><%= title %></title>
-    <!--css 들어갈 부분-->
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <link href="../public/css/login.css" rel="stylesheet" />
 
-    <body>
-        <div class="login_con">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <section class="login">
+      <div class="login_box">
+        <div class="left">
+          <div class="top_link"></div>
+          <div class="contact">
             <form action="/login" method="post" className="inputField">
-            <p id="id_input">ID</p>
-            <input type="text" name="id" placeholder="ID">
-            <br>
-            <p id="pwpara">Password</p>
-            <input type="password" name="password" class="input-type" placeholder="password">
-            <br><br>
-            <button type="submit" id="loginBtn">Log In</button>
-            <a href="/signup">회원가입</a>
+              <input type="text" class="id_input" name="id" placeholder="ID" />
+              <input
+                type="password"
+                class="pw_input"
+                name="password"
+                placeholder="PASSWORD"
+              />
+              <button class="submit">LET'S GO</button>
+              <button
+                type="button"
+                class="submit"
+                onclick="location.href='/signup' "
+              >
+                SIGN UP
+              </button>
+            </form>
+          </div>
         </div>
-    </body>
+        <div class="right">
+          <div class="right-inductor"></div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
