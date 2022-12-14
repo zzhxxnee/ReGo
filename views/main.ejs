@@ -13,8 +13,14 @@
       <%= nickname %>
       <a href="/logout">로그아웃</a>
       <% for (let i = goal_list.length - 1; i >= 0; i--) { %>
+        
         <div class="goal_list">
-          <b> <%= goal_list[i].goal_user %> : </b> <%= goal_list[i].goal_content %> <br />
+          <b> <%= goal_list[i].goal_user %> : </b> <%= goal_list[i].goal_content %>
+          <form action="/cheer_goal" method="post" style="display: inline;">
+            <input type="hidden" name="goal_id" value="<%=goal_list[i].goal_id%>">
+            <input type="image" src="/public/img/cheer_up.png" width="15px" alt="제출버튼">
+          </form>
+          
         </div>
       <!-- &emsp;&emsp; -->
       <% } %>
