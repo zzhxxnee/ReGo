@@ -7,7 +7,6 @@ router.get("/", async (req, res) => {
   if (req.session.user) {
     const nickname = req.session.user["nickname"];
     const goal_list = await pool.query(`SELECT * FROM goal`);
-
     res.render("main", {
       title: title,
       nickname: nickname,
