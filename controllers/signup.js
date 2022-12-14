@@ -30,7 +30,7 @@ router.post("/", async (req, res, next) => {
     } catch (err) {
       console.error(err);
       res.write(
-        //db에 들어가는 과정에서 오류가 난다면 id가 이미 존재하는 것
+        //db에 들어가는 과정에서 오류
         `<script type="text/javascript">alert('error!')</script>`
       );
       res.write('<script>window.location="/signup"</script>');
