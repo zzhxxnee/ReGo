@@ -15,6 +15,7 @@ router.post("/", async (req, res, next) => {
   const password_check = post.password_check;
   const nickname = post.nickname;
   const name = post.name;
+  const email = post.email;
 
   if (password == password_check) {
     //pw와 pw확인이 동일한지 확인
@@ -29,7 +30,7 @@ router.post("/", async (req, res, next) => {
     } catch (err) {
       console.error(err);
       res.write(
-        //db에 들어가는 과정에서 오류
+        //db에 들어가는 과정에서 오류가 난다면 id가 이미 존재하는 것
         `<script type="text/javascript">alert('error!')</script>`
       );
       res.write('<script>window.location="/signup"</script>');
