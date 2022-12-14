@@ -11,13 +11,23 @@
     <h1>Main</h1>
     <p>
       <%= nickname %>
+      <a href="/my_goal">내 목표</a>
       <a href="/logout">로그아웃</a>
-      <% for (let i = 0; i < goal_list.length; i++) { %>
+      <% for (let i = goal_list.length - 1; i >= 0; i--) { %>
         <div class="goal_list">
           <b> <%= goal_list[i].goal_user %> : </b> <%= goal_list[i].goal_content %> <br />
         </div>
       <!-- &emsp;&emsp; -->
       <% } %>
     </p>
+
+      <!-- 새해 목표 작성하기 -->
+      <form action="/write_goal" method="post">
+        <label><%= nickname %> 의 한 줄 목표를 적어주세요.</label>
+        <br>
+        <input type="text" name="goal_content">
+        <input type="submit" value="목표 올리기">
+      </form>
+
   </body>
 </html>
