@@ -26,10 +26,13 @@ app.use(
   })
 );
 
+app.use('/public', express.static(__dirname + '/public'));
+
 app.use("/", require("./controllers/main"));
 app.use("/signup", require("./controllers/signup"));
 app.use("/login", require("./controllers/login"));
 app.use("/logout", require("./controllers/logout"));
+app.use("/my_goal", require("./controllers/my_goal"));
 
 app.listen(port);
 console.log(`app is listening port ${port}`);
