@@ -26,6 +26,8 @@ app.use(
   })
 );
 
+app.use('/public', express.static(__dirname + '/public'));
+
 app.use("/", require("./controllers/main"));
 app.use("/signup", require("./controllers/signup"));
 app.use("/login", require("./controllers/login"));
