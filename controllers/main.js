@@ -29,7 +29,6 @@ router.get("/", async (req, res) => {
       goal_list: goal_list[0],
       cheer_list: cheer_list[0],
       arr: arr
-     // data: data1[0],
 
     });
   } else {
