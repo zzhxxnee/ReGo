@@ -6,9 +6,22 @@ router.get("/", (req, res) => {
   const title = "main";
   if (req.session.user) {
     const nickname = req.session.user["nickname"];
-    res.render("main", {title: title, nickname: nickname});
+    const goal_list = await pool.query(`SELECT * FROM goal`);
+    res.render("main", {
+      title: title,
+      nickname: nickname,
+      goal_list: goal_list[0],
+    });
   } else {
-    res.render("loginMain", {title: title});
+    res.render("login", {
+      title: title,
+    });
+  }
+});
+  } else {
+    res.render("login", {
+      title: title,
+    });
   }
 });
 
@@ -30,7 +43,6 @@ router.post("/write_goal", async (req, res, next) => {
     } catch (err) {
       console.error(err);
     }
-
 });
 
 

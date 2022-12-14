@@ -29,7 +29,6 @@ router.post("/", async (req, res, next) => {
       authorized: true,
     };
     res.write('<script>window.location="/"</script>');
-    res.end();
   } else {
     res.write(
       `<script type="text/javascript">alert('Wrong user_id or password!')</script>`
