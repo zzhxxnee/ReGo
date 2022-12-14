@@ -21,7 +21,6 @@ router.get("/", async (req, res) => {
     return b - a;
   });
 
-   console.log(arr);
 
     res.render("main", {
       title: title,
