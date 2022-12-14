@@ -19,5 +19,19 @@
       <!-- &emsp;&emsp; -->
       <% } %>
     </p>
+
+      <!-- 새해 목표 작성하기 -->
+      <form action="/write_goal" method="post">
+        <label><%= nickname %> 의 한 줄 목표를 적어주세요.</label>
+        <br>
+        <input type="text" name="goal_content">
+        <input type="submit" value="목표 올리기">
+      </form>
+
+    <p>
+      <%= nickname %>
+      <a href="/logout">로그아웃</a>
+    </p>
+
   </body>
 </html>
