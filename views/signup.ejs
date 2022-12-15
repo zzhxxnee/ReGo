@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <link href="../public/css/signup.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <section class="signup">
+      <div class="signup_box">
+        <div class="left">
+          <div class="top_link"></div>
+          <div class="contact">
+            <form action="/signup" method="post" className="inputField">
+              <input type="text" name="id" id="id" placeholder="ID" required />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+              <br />
+              <input
+                type="password"
+                name="password_check"
+                id="passwordCheck"
+                placeholder="Password Confirm"
+                required
+              />
+              <br />
+              <input
+                type="text"
+                name="name"
+                class="input-type"
+                id="name"
+                placeholder="Name"
+                required
+              />
+              <br />
+              <input
+                type="text"
+                name="nickname"
+                id="nickname"
+                placeholder="Nickname"
+                required
+              />
+              <br />
+              <br />
+              <button class="submit">SIGN UP</button>
+             <button
+                type="button"
+                class="login_btn"
+                onclick="location.href='/login' "
+              >
+                LOG IN
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="right">
+          <div class="right-inductor"></div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+  </div>
+</body>
+
+</html>

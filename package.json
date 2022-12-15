@@ -1,0 +1,27 @@
+{
+  "name": "ossproject",
+  "version": "1.0.0",
+  "description": "- 혼자 독서를 하려고 하면 여러 가지 이유를 들며 안하게 되는 경우가 많은데 <br> <br>\r <b> 1️⃣ 집에서 나가기는 귀찮고! </b> <br> <br>\r <b> 2️⃣ 책은 읽고 싶지만! </b> <br> <br>\r <b> 3️⃣ 혼자서는 의지박약인 사람들을 위한! </b> <br> <br>\r 웹 서비스를 제공하여 간편하게 집에서도 비슷한 취향의 사람들이 모여 독서 모임을 진행할 수 있도록 한다.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plum-king/ossproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plum-king/ossproject/issues"
+  },
+  "homepage": "https://github.com/plum-king/ossproject#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^2.3.3"
+  }
+}
