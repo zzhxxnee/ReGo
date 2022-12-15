@@ -7,11 +7,12 @@ router.get("/", async (req, res, next) => {
   try{
    const my_goal = await pool.query(`SELECT * FROM goal WHERE goal_user = ?`, [
     nickname,
-  ]); }
+  ]);
+  res.render("my_goal", {title: "내 목표", my_goal: my_goal[0]});
+  }
   catch (err) {
     console.error(err);
   }
-  res.render("my_goal", {title: "내 목표", my_goal: my_goal[0]});
 });
 
 module.exports = router;
