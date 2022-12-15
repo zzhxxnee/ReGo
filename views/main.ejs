@@ -115,32 +115,21 @@
 
     <div id="header"><a id="my-goal" href="/my_goal" style="margin-right: 10px;">내 목표</a><a id="logout" href="/logout">로그아웃</a></div>
     <h1>다른 사람들의 목표를 응원해주세요 😊</h1>
-    <div
-    class="container"
-    style="overflow-y: scroll; height: 20vw; margin-bottom: 50px"
-  >
+    <div class="container" style="overflow-y: scroll; height: 40vw; margin-bottom: 50px">
     <% for (let i=goal_list.length - 1; i>= 0; i--) { %>
-    <div
-      class="goal_list"
-      style="display: flex; justify-content: space-between"
-    >
-      <div style="float: left">
+    <div class="goal_list" style="display: flex; justify-content: space-between" >
+      <div>
         <% if ( arr[k] == goal_list[i].goal_id) { %> <% k++ ; %>
         <div style="font-weight: bold"><%= goal_list[i].goal_user %></div>
         <div><%= goal_list[i].goal_content %></div>
-        <img src="/public/img/cheer_complete.png" width="20px" />
+        <img src="/public/img/cheercomplete.svg" style="width:25px;" />
         <br />
         <% } else { %>
         <div style="font-weight: bold"><%= goal_list[i].goal_user %></div>
         <div><%= goal_list[i].goal_content %></div>
-        <form action="/cheer_goal" method="post" style="display: inline">
-          <input
-            type="hidden"
-            name="goal_id"
-            value="<%= goal_list[i].goal_id %>"
-          />
+        <form action="/cheer_goal" method="post" >
+          <input type="hidden" name="goal_id"  value="<%= goal_list[i].goal_id %>" />
           <input type="image" src="/public/img/cheerup.svg" style="float:right; border:0; outline:0; background-color:white;" alt="제출버튼">
-
         </form>
         <% } %> 
         <br />
