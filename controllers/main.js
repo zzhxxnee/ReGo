@@ -4,6 +4,7 @@ const pool = require("../db.js");
 
 router.get("/", async (req, res) => {
   const title = "main";
+  try{
   if (req.session.user) {
     const nickname = req.session.user["nickname"];
     let user_id= await pool.query(`SELECT id FROM user WHERE nickname=? `, [nickname]);
@@ -35,6 +36,8 @@ router.get("/", async (req, res) => {
     res.render("login", {
       title: title,
     });
+  } } catch(err) {
+     console.error(err)
   }
 });
 
