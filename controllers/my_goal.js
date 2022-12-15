@@ -4,9 +4,13 @@ const pool = require("../db.js");
 
 router.get("/", async (req, res, next) => {
   const nickname = req.session.user["nickname"];
-  const my_goal = await pool.query(`SELECT * FROM goal WHERE goal_user = ?`, [
+  try{
+   const my_goal = await pool.query(`SELECT * FROM goal WHERE goal_user = ?`, [
     nickname,
-  ]);
+  ]); }
+  catch (err) {
+    console.error(err);
+  }
   res.render("my_goal", {title: "내 목표", my_goal: my_goal[0]});
 });
 
