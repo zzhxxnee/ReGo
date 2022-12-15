@@ -108,7 +108,6 @@ router.post("/cheer_goal", async (req, res, next) => {
       goal_list: goal_list[0],
       cheer_list: cheer_list[0],
       arr: arr
-      //data: cheer_goal_list
     });
   } catch (err) {
     console.error(err);
