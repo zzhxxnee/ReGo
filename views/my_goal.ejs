@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>
+    <%= title %>
+  </title>
+  <!--css 들어갈 부분-->
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    #header {
+      height: 53px;
+      line-height: 53px;
+      text-align: right;
+      padding-right: 100px;
+      background-color: #f8a4a4;
+    }
+
+    #logout {
+      font-weight: bold;
+      text-decoration-line: none;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1 {
+      margin-left: 29%;
+      margin-right: 25%;
+      font-size: 20px;
+      padding-top: 40px;
+    }
+    .goal_list {
+      margin-left: 38%;
+      text-align: center;
+      height: fit-content;
+      border: 1px solid #bb2649;
+      border-radius: 30px;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 20px;
+      margin-top: 10px;
+    }
+
+    .container {
+      margin-right: 27%;
+      overflow: auto;
+    }
+
+    .container::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+      background-color: #bb2649;
+      border-radius: 10px;
+      background-clip: padding-box;
+      border: 2px solid transparent;
+    }
+
+    .container::-webkit-scrollbar-track {
+      background-color: #F4F4F4;
+      border-radius: 10px;
+      box-shadow: inset 0px 0px 5px white;
+    }
+
+    #goto-main {
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+      text-decoration-line: none;
+      text-decoration: none;
+      color: #bb2649;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"><a id="logout" href="/logout">로그아웃</a></div>
+
+  <div class="div_goal">
+    <h1>🤑내가 작성한 2023년 목표🤑</h1>
+    <div class="container" style="overflow-y: scroll; height:30vw; margin-bottom:50px;">
+      <% for (let i=my_goal.length - 1; i>= 0; i--) { %>
+        <div class="goal_list">
+          <b>
+            <%= my_goal[i].goal_content %>
+          </b>
+          <br />
+        </div>
+        <% } %>
+          <br />
+    </div>
+    <a id="goto-main" href="/"> 더 작성하러 가기</a>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <!--css 들어갈 부분-->
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      #header {
+        height: 53px;
+        line-height: 53px;
+        text-align: right;
+        padding-right: 100px;
+        background-color: #f8a4a4;
+      }
+
+      h1 {
+        margin-left: 29%;
+        margin-right: 25%;
+        font-size: 20px;
+        padding-top: 40px;
+      }
+
+      #my-goal {
+        font-weight: bold;
+        text-decoration-line: none;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      #logout {
+        font-weight: bold;
+        text-decoration-line: none;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .goal_list {
+        margin-left: 38%;
+        height: fit-content;
+        border: 1px solid #bb2649;
+        border-radius: 30px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-right: 20px;
+        margin-top: 10px;
+      }
+
+      #write-goal {
+        margin-left: 27%;
+        margin-right: 27%;
+        height: 100px;
+        border-radius: 15px;
+        padding-left: 25px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        border: 1px solid #bb2649;
+      }
+
+      #write {
+        font-weight: bold;
+      }
+
+      #input-goal {
+        width: 85%;
+        height: 32px;
+        font-size: 15px;
+        border: 0;
+        border-radius: 15px;
+        outline: none;
+        margin-top: 23px;
+        padding-left: 10px;
+        margin-right: 20px;
+      }
+
+      .container {
+        margin-right: 27%;
+        overflow: auto;
+      }
+      .container::-webkit-scrollbar {
+        width: 10px;
+      }
+      .container::-webkit-scrollbar-thumb {
+        background-color: #bb2649;
+        border-radius: 10px;
+        background-clip: padding-box;
+        border: 2px solid transparent;
+      }
+      .container::-webkit-scrollbar-track {
+        background-color: #F4F4F4;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 5px white;
+      }
+
+      #upload-img{
+      }
+    </style>
+  </head>
+
+  <body>
+
+      <% 
+      let count=0;
+      let k=0;
+      %>
+
+    <div id="header"><a id="my-goal" href="/my_goal" style="margin-right: 10px;">내 목표</a><a id="logout" href="/logout">로그아웃</a></div>
+    <h1>다른 사람들의 목표를 응원해주세요 😊</h1>
+    <div class="container" style="overflow-y: scroll; height: 40vw; margin-bottom: 50px">
+    <% for (let i=goal_list.length - 1; i>= 0; i--) { %>
+    <div class="goal_list" style="display: flex; justify-content: space-between" >
+      <div>
+        <% if ( arr[k] == goal_list[i].goal_id) { %> <% k++ ; %>
+        <div style="font-weight: bold"><%= goal_list[i].goal_user %></div>
+        <div><%= goal_list[i].goal_content %></div>
+        <img src="/public/img/cheercomplete.svg" style="width:25px;" />
+        <br />
+        <% } else { %>
+        <div style="font-weight: bold"><%= goal_list[i].goal_user %></div>
+        <div><%= goal_list[i].goal_content %></div>
+        <form action="/cheer_goal" method="post" >
+          <input type="hidden" name="goal_id"  value="<%= goal_list[i].goal_id %>" />
+          <input type="image" src="/public/img/cheerup.svg" style="float:right; border:0; outline:0; background-color:white;" alt="제출버튼">
+        </form>
+        <% } %> 
+        <br />
+      </div>
+    </div>
+    <!-- &emsp;&emsp; -->
+    <% } %>
+  </div>
+
+    <!-- 새해 목표 작성하기 -->
+    <div id="write-goal">
+      <form action="/write_goal" method="post">
+        <label id="write">
+          <%= nickname %> 님의 한 줄 목표를 적어주세요 🙂
+        </label>
+        <br />
+        <input id="input-goal" type="text" name="goal_content"required />
+        <input id="upload-img" type="image" src="../public/img/upload.svg" alt="업로드버튼" />
+      </form>
+    </div>
+  </body>
+</html>
