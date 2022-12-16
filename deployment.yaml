@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rego
+  labels:
+    app: rego
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: rego
+  template:
+    metadata:
+      labels:
+        app: rego
+        tier: rego
+    spec:
+      containers:
+      - name: rego
+        image: zzhxxnee/rego:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          name: rego
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rego
+  labels:
+    app: rego
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: rego
+    tier: rego
+  type: LoadBalancer
