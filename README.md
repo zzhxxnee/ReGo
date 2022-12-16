@@ -4,7 +4,7 @@
 
 - 나 혼자만 다짐하면 절대 안치키는 새해 목표, 작성하고 공유하자!
 - Jenkins와 Kubernetes 활용한 CI/CD 환경 구축 및 자동화
-
+// - 빌드확인용 주석
 ### 참여인원
 <table style = "width: 100%;">
   <tr>
